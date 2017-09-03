@@ -11,9 +11,12 @@ import (
 func main() {
 	fmt.Println("Starting HTTP listener on " + port())
 
-	http.HandleFunc("/", index)
-	http.HandleFunc("/api/echo", echo)
+	//http.HandleFunc("/", index)
+	http.HandleFunc("/api/echo", api.EchoHandleFunc)
+
+	http.HandleFunc("/api/books/", api.BookHandleFunc)
 	http.HandleFunc("/api/books", api.BooksHandleFunc)
+
 	http.ListenAndServe(port(), nil)
 }
 
@@ -30,9 +33,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello Cloud Native Go")
 }
 
-func echo(w http.ResponseWriter, r *http.Request) {
+/*func echo(w http.ResponseWriter, r *http.Request) {
 	messege := r.URL.Query()["messege"][0]
 
 	w.Header().Add("Content-Type", "text/plain")
 	fmt.Fprintf(w, messege)
 }
+*/
