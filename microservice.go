@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"./api"
+	"github.com/amila-ku/cngoapp/api"
 )
 
 func main() {
