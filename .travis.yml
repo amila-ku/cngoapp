@@ -10,3 +10,6 @@ before_install:
 
 script:
   - docker run -p 8080:8080 amilak/goapp:1.0
+  - curl http://localhost:8080
+  - docker ps
+  - docker exec -it amilak/goapp:1.0 ps -eaf
