@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/amilak/cngoapp
+    docker:
+      # using custom image, see .circleci/images/primary/Dockerfile
+      - image: amilak/goapp:1.0
+    steps:
+      - checkout
+      - setup_remote_docker
+
